@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Skills from '../components/Skills';
+import Projects from '../components/Projects';
+import Experience from '../components/Experience';
+import ContactForm from '../components/ContactForm';
+import { site, skills, projects, experience } from '../data/site';
+---
+
+<Layout>
+  <Navbar client:load name={site.name} />
+
+  <main id="top" class="mx-auto max-w-5xl px-6">
+    <!-- Hero -->
+    <section class="relative flex min-h-[90vh] flex-col justify-center pt-16">
+      <div
+        class="pointer-events-none absolute -top-10 left-1/2 -z-10 size-[36rem] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"
+      >
+      </div>
+      <p class="mb-4 font-mono text-sm text-accent">Hi, my name is</p>
+      <h1 class="text-5xl font-bold tracking-tight text-white sm:text-7xl">{site.name}</h1>
+      <h2 class="mt-3 text-3xl font-semibold text-zinc-400 sm:text-5xl">{site.role}</h2>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400">{site.tagline}</p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          href="#projects"
+          class="rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-zinc-950 transition-opacity hover:opacity-90"
+          >View my work</a
+        >
+        <a
+          href="#contact"
+          class="rounded-lg border border-white/15 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/5"
+          >Get in touch</a
+        >
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="scroll-mt-24 py-24">
+      <h2 class="mb-10 flex items-center gap-4 text-2xl font-bold text-white">
+        <span class="font-mono text-base text-accent">01.</span> About me
+        <span class="h-px flex-1 bg-white/10"></span>
+      </h2>
+      <div class="grid gap-10 md:grid-cols-[3fr_2fr]">
+        <div class="space-y-4 leading-relaxed text-zinc-400">
+          {site.about.map((p) => <p>{p}</p>)}
+        </div>
+        <div>
+          <p class="mb-4 text-sm text-zinc-500">Technologies I work with:</p>
+          <Skills client:visible skills={skills} />
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="scroll-mt-24 py-24">
+      <h2 class="mb-10 flex items-center gap-4 text-2xl font-bold text-white">
+        <span class="font-mono text-base text-accent">02.</span> Projects
+        <span class="h-px flex-1 bg-white/10"></span>
+      </h2>
+      <Projects client:visible projects={projects} />
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="scroll-mt-24 py-24">
+      <h2 class="mb-10 flex items-center gap-4 text-2xl font-bold text-white">
+        <span class="font-mono text-base text-accent">03.</span> Experience
+        <span class="h-px flex-1 bg-white/10"></span>
+      </h2>
+      <Experience client:visible jobs={experience} />
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="scroll-mt-24 py-24">
+      <h2 class="mb-4 flex items-center gap-4 text-2xl font-bold text-white">
+        <span class="font-mono text-base text-accent">04.</span> Get in touch
+        <span class="h-px flex-1 bg-white/10"></span>
+      </h2>
+      <p class="mb-10 max-w-xl text-zinc-400">
+        Have a project in mind or just want to say hi? My inbox is always open.
+      </p>
+      <ContactForm client:visible email={site.email} />
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 py-10">
+    <div
+      class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 text-sm text-zinc-500 sm:flex-row"
+    >
+      <p>© {new Date().getFullYear()} {site.name}. Built with Astro, Tailwind & Base UI.</p>
+      <ul class="flex gap-6">
+        {
+          site.socials.map((s) => (
+            <li>
+              <a href={s.href} target="_blank" rel="noopener noreferrer" class="hover:text-accent">
+                {s.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </footer>
+</Layout>
