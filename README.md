@@ -1,4 +1,4 @@
-# Syntax Guild Portfolio
+# Syntax Guild Portfolio <img src="./public/dragon-bg-sky.png" alt="คำอธิบายภาพ" width="4%">
 
 An accessible, responsive developer portfolio built with Astro, React, and Tailwind CSS. The site includes a hero section, skills, selected projects, experience timeline, and a contact form.
 
