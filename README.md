@@ -1,43 +1,50 @@
-# Astro Starter Kit: Minimal
+# Syntax Guild Portfolio
+
+An accessible, responsive developer portfolio built with Astro, React, and Tailwind CSS. The site includes a hero section, skills, selected projects, experience timeline, and a contact form.
+
+## Requirements
+
+- Node.js 22.12 or newer
+- npm
+
+## Getting started
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The development server runs at `http://localhost:4321` by default.
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the local development server |
+| `npm run build` | Build the production site in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run astro -- --help` | Show Astro CLI help |
+
+## Project structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+  components/   React UI components
+  data/         Portfolio content and site settings
+  layouts/      Shared Astro layouts
+  pages/        Route entrypoints
+  styles/       Global CSS and Tailwind styles
+public/         Static assets
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Customization
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Edit `src/data/site.ts` to update the name, role, bio, social links, skills, projects, and work history. Replace the files in `public/` when adding custom static assets.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Deployment
 
-## 🧞 Commands
+Run `npm run build` and deploy the generated `dist/` directory to any static host, including Netlify, Vercel, GitHub Pages, or Cloudflare Pages.
 
-All commands are run from the root of the project, from a terminal:
+## License
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See [LICENSE](./LICENSE).
